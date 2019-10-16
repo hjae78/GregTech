@@ -22,9 +22,9 @@ public class Materials {
         MarkerMaterials.register();
     }
 
-    private static final long STD_SOLID = GENERATE_PLATE | GENERATE_ROD | GENERATE_BOLT_SCREW | GENERATE_LONG_ROD;
+    private static final long STD_SOLID = GENERATE_DENSE | GENERATE_ROD | GENERATE_BOLT_SCREW | GENERATE_LONG_ROD;
     private static final long STD_GEM = GENERATE_ORE | STD_SOLID | GENERATE_LENSE;
-    private static final long STD_METAL = GENERATE_PLATE;
+    private static final long STD_METAL = GENERATE_DENSE;
     private static final long EXT_METAL = STD_METAL | GENERATE_ROD | GENERATE_BOLT_SCREW | GENERATE_LONG_ROD;
     private static final long EXT2_METAL = EXT_METAL | GENERATE_GEAR | GENERATE_FOIL | GENERATE_FINE_WIRE;
 
@@ -507,6 +507,54 @@ public class Materials {
     public static FluidMaterial Juice = new FluidMaterial(473, "juice", 0xA8C972, MaterialIconSet.FLUID, of(), 0);
     public static DustMaterial Cocoa = new DustMaterial(343, "cocoa", 0xBE5F00, MaterialIconSet.ROUGH, 0, of(), 0);
     public static DustMaterial Wheat = new DustMaterial(345, "wheat", 0xFFFFC4, MaterialIconSet.FINE, 0, of(), 0);
+
+    public static DustMaterial Bedrockium = new DustMaterial(500, "bedrockium", 0x121211, MaterialIconSet.DULL, 0, of(), GENERATE_PLATE);
+    public static IngotMaterial ConductiveIron = new IngotMaterial(501, "conductive_iron", 0xf7b29b, MaterialIconSet.SHINY, 2, of(), EXT_METAL);
+    public static IngotMaterial EnergeticAlloy = new IngotMaterial(502, "energetic_alloy", 0xf49507, MaterialIconSet.SHINY, 2, of(), EXT_METAL);
+    public static IngotMaterial VibrantAlloy = new IngotMaterial(504, "vibrant_alloy", 0xa4ff70, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial PulsatingIron = new IngotMaterial(505, "pulsating_iron", 0x6ae26e, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Ardite = new IngotMaterial(503, "ardite", 0xad2f05, MaterialIconSet.DULL, 2, of(), EXT2_METAL | GENERATE_ORE);
+    public static IngotMaterial Manyullyn = new IngotMaterial(506, "manyullyn", 0x9949cc, MaterialIconSet.DULL, 2, of(), EXT2_METAL);
+    public static IngotMaterial ElectricalSteel = new IngotMaterial(507, "electrical_steel", 0xb2c0c1, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial DarkSteel = new IngotMaterial(508, "dark_steel", 0x414751, MaterialIconSet.DULL, 2, of(), EXT2_METAL);
+    public static IngotMaterial EndSteel = new IngotMaterial(509, "end_steel", 0xe0efbd, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Lumium = new IngotMaterial(510, "lumium", 0xf6ff99, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Signalum = new IngotMaterial(511, "signalum", 0xce4b00, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Enderium = new IngotMaterial(512, "enderium", 0x1f6b62, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial AwakenedDraconium = new IngotMaterial(513, "awakened_draconium", 0xf44e00, MaterialIconSet.SHINY, 7, of(), EXT2_METAL);
+    public static IngotMaterial Draconium = new IngotMaterial(514, "draconium", 0x7a44b0, MaterialIconSet.SHINY, 4, of(), EXT2_METAL);
+    public static IngotMaterial RefinedGlowstone = new IngotMaterial(515, "refined_glowstone", 0xffff00, MaterialIconSet.METALLIC, 2, of(), EXT2_METAL);
+    public static IngotMaterial RefinedObsidian = new IngotMaterial(516, "refined_obsidian", 0x503264, MaterialIconSet.METALLIC, 2, of(), EXT2_METAL);
+    public static IngotMaterial Osgloglas = new IngotMaterial(517, "osgloglas", 0x2bef28, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Trinium = new IngotMaterial(518, "trinium", 0xc8c8d2, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial MeteoricIron = new IngotMaterial(519, "meteoric_iron", 0x643250, MaterialIconSet.METALLIC, 2, of(), EXT2_METAL);
+    public static IngotMaterial MeteoricSteel = new IngotMaterial(520, "meteoric_steel", 0x321928, MaterialIconSet.METALLIC, 2, of(), EXT2_METAL);
+    public static IngotMaterial CosmicNeutronium = new IngotMaterial(521, "cosmic_neutronium", 0x323232, MaterialIconSet.SHINY, 2, of(), EXT2_METAL | GLINT);
+    public static IngotMaterial Infinity = new IngotMaterial(522, "infinity", 0xffffff, MaterialIconSet.SHINY, 8, of(), EXT2_METAL | GLINT);
+    public static IngotMaterial InfinityCatalyst = new IngotMaterial(523, "infinity_catalyst", 0xffffff, MaterialIconSet.SHINY, 7, of(), EXT2_METAL | GLINT);
+    public static IngotMaterial Quantium = new IngotMaterial(524, "quantium", 0x00d10b, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial BlackPlutonium = new IngotMaterial(525, "black_plutonium", 0x323232, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
+    public static IngotMaterial Sunnarium = new IngotMaterial(526, "sunnarium", 0xffff00, MaterialIconSet.SHINY, 2, of(), GENERATE_DENSE);
+
+//    public static Materials Pentacadmiummagnesiumhexaoxid                                   = new Materials( 987, TextureSet.SET_SHINY          ,   1.0F,      0,  3, 1|2                ,  85, 85,  85,   0,   "Pentacadmiummagnesiumhexaoxid"                                 ,   "Superconductor Base MV"       ,     0,       0,     2500,  2500,  true,  false,  1,   1,   1, Dyes.dyeGray       , 1, Arrays.asList(new MaterialStack(Cadmium, 5), new MaterialStack(Magnesium, 1), new MaterialStack(Oxygen, 6)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 3)));
+//    public static Materials Titaniumonabariumdecacoppereikosaoxid                           = new Materials( 988, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                ,  51, 25,   0,   0,   "Titaniumonabariumdecacoppereikosaoxid"                         ,   "Superconductor Base HV"       ,     0,       0,     3300,  3300,  true,  false,  1,   1,   1, Dyes.dyeBrown      , 1, Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Barium, 9),  new MaterialStack(Copper, 10), new MaterialStack(Oxygen, 20)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 6)));
+//    public static Materials Uraniumtriplatinid                                              = new Materials( 989, TextureSet.SET_SHINY          ,   1.0F,      0,  3, 1|2                ,   0,135,   0,   0,   "Uraniumtriplatinid"                                            ,   "Superconductor Base EV"       ,     0,       0,     4400,  4400,  true,  false,  1,   1,   1, Dyes.dyeLime       , 1, Arrays.asList(new MaterialStack(Uranium, 1), new MaterialStack(Platinum, 3)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 9)));
+//    public static Materials Vanadiumtriindinid                                              = new Materials( 990, TextureSet.SET_SHINY          ,   1.0F,      0,  3, 1|2                ,  51,  0,  51,   0,   "Vanadiumtriindinid"                                            ,   "Superconductor Base IV"       ,     0,       0,     5200,  5200,  true,  false,  1,   1,   1, Dyes.dyeMagenta    , 1, Arrays.asList(new MaterialStack(Vanadium , 1), new MaterialStack(Indium, 3)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 12)));
+//    public static Materials Tetraindiumditindibariumtitaniumheptacoppertetrakaidekaoxid     = new Materials( 991, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                , 153, 76,   0,   0,   "Tetraindiumditindibariumtitaniumheptacoppertetrakaidekaoxid"   ,   "Superconductor Base LuV"      ,     0,       0,     6000,  6000,  true,  false,  1,   1,   1, Dyes.dyeBrown      , 1, Arrays.asList(new MaterialStack(Indium, 4), new MaterialStack(Tin, 2), new MaterialStack(Barium, 2), new MaterialStack(Titanium, 1), new MaterialStack(Copper, 7), new MaterialStack(Oxygen, 14)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 15)));
+//    public static Materials Tetranaquadahdiindiumhexaplatiumosminid                         = new Materials( 992, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                ,  10, 10,  10,   0,   "Tetranaquadahdiindiumhexaplatiumosminid"                       ,   "Superconductor Base ZPM"      ,     0,       0,     9000,  9000,  true,  false,  1,   1,   1, Dyes.dyeBlack      , 1, Arrays.asList(new MaterialStack(Naquadah, 4), new MaterialStack(Indium, 2), new MaterialStack(Palladium, 6), new MaterialStack(Osmium, 1)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 18)));
+//    public static Materials Longasssuperconductornameforuvwire                              = new Materials( 986, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                , 224,210,   7,   0,   "Longasssuperconductornameforuvwire"                            ,   "Superconductor Base UV"       ,     0,       0,     9900,  9900,  true,  false,  1,   1,   1, Dyes.dyeYellow     , 1, Arrays.asList(new MaterialStack(Naquadria, 4), new MaterialStack(Osmiridium, 3), new MaterialStack(Europium, 1), new MaterialStack(Samarium, 1)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 21)));
+//    public static Materials Longasssuperconductornameforuhvwire                             = new Materials( 985, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                , 255,255, 255,   0,   "Longasssuperconductornameforuhvwire"                           ,   "Superconductor Base UHV"      ,     0,       0,     10800,  10800,  true,  false,  1,   1,   1, Dyes.dyeWhite      , 1, Arrays.asList(new MaterialStack(DraconiumAwakened, 6), new MaterialStack(CosmicNeutronium, 7), new MaterialStack(InfinityCatalyst, 5), new MaterialStack(Americium, 6)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 24)));
+//
+//    public static Materials SuperconductorMV      = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                ,  85, 85,  85,   0,   "SuperconductorMV"   ,   "Superconductor MV"       ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeGray       , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 6)));
+//    public static Materials SuperconductorHV      = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                ,  51, 25,   0,   0,   "SuperconductorHV"   ,   "Superconductor HV"       ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeBrown      , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 12)));
+//    public static Materials SuperconductorEV      = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                ,   0,135,   0,   0,   "SuperconductorEV"   ,   "Superconductor EV"       ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeLime       , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 18)));
+//    public static Materials SuperconductorIV      = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                ,  51,  0,  51,   0,   "SuperconductorIV"   ,   "Superconductor IV"       ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeMagenta    , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 24)));
+//    public static Materials SuperconductorLuV     = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                , 153, 76,   0,   0,   "SuperconductorLuV"  ,   "Superconductor LuV"      ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeBrown      , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 28)));
+//    public static Materials SuperconductorZPM     = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                ,  10, 10,  10,   0,   "SuperconductorZPM"  ,   "Superconductor ZPM"      ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeBlack      , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 32)));
+//    public static Materials SuperconductorUV      = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                , 224,210,   7,   0,   "SuperconductorUV"   ,   "Superconductor UV"       ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeYellow     , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 48)));
+//    public static Materials SuperconductorMAX     = new Materials( -1, TextureSet.SET_SHINY       ,   1.0F,      0,  0, 0                , 255,255, 255,   0,   "Superconductor"     ,   "Superconductor UHV"      ,     0,       0,     -1,  -1,  false,  false,  1,   1,   1, Dyes.dyeWhite      , Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 64)));
+
+
 
     static {
         for (DustMaterial dustMaterial : new DustMaterial[]{Bastnasite, Monazite}) {

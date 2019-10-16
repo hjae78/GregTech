@@ -163,6 +163,33 @@ public class MetaItem2 extends MaterialMetaItem {
 
         TURBINE_ROTOR = addItem(508, "turbine_rotor").addComponents(new TurbineRotorBehavior());
         COVER_FACADE = addItem(509, "cover.facade").addComponents(new FacadeItem()).disableModelLoading();
+
+        PLATE_ALUMINIUM_IRON = addItem(510, "plate.aluminium.iron");
+        PLATE_BEDROCKIUM_IRON = addItem(511, "plate.bedrockium.iron");
+        PLATE_CHROME_IRON= addItem(512, "plate.chrome.iron");
+        PLATE_TITANIUM_IRON = addItem(513, "plate.titanium.iron");
+        PLATE_TUNGSTEN_IRON = addItem(514, "plate.tungsten.iron");
+        PLATE_TUNGSTENSTEEL_IRON = addItem(515, "plate.tungstensteel.iron");
+        PLATE_NAQUADRIA_IRON = addItem(516, "plate.naquadria.iron");
+        PLATE_NEUTRONIUM_IRON = addItem(517, "plate.neutronium.iron");
+
+        IRRADIANT_ALUMINIUM = addItem(518, "plate.irradiant.aluminium");
+        IRRADIANT_BEDROCKIUM = addItem(519, "plate.irradiant.bedrockium");
+        IRRADIANT_CHROME = addItem(520, "plate.irradiant.chrome");
+        IRRADIANT_NAQUADRIA = addItem(521, "plate.irradiant.naquadria");
+        IRRADIANT_NEUTRONIUM = addItem(522, "plate.irradiant.neutronium");
+        IRRADIANT_TITANIUM = addItem(523, "plate.irradiant.titanium");
+        IRRADIANT_TUNGSTEN = addItem(524, "plate.irradiant.tungsten");
+        IRRADIANT_TUNGSTENSTEEL = addItem(525, "plate.irradiant.tungstensteel");
+
+        PLATE_REINFORCED_ALUMINIUM = addItem(526, "plate.reinforced.aluminium");
+        PLATE_REINFORCED_BEDROCKIUM = addItem(527, "plate.reinforced.bedrockium");
+        PLATE_REINFORCED_CHROME = addItem(528, "plate.reinforced.chrome");
+        PLATE_REINFORCED_NAQUADRIA = addItem(529, "plate.reinforced.naquadria");
+        PLATE_REINFORCED_NEUTRONIUM = addItem(530, "plate.reinforced.neutronium");
+        PLATE_REINFORCED_TITANIUM = addItem(531, "plate.reinforced.titanium");
+        PLATE_REINFORCED_TUNGSTEN = addItem(532, "plate.reinforced.tungsten");
+        PLATE_REINFORCED_TUNGSTENSTEEL = addItem(533, "plate.reinforced.tungstensteel");
     }
 
     public void registerRecipes() {

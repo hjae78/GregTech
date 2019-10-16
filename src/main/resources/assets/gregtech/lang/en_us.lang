@@ -2959,3 +2959,44 @@ gregtech.command.util.hand.material_meta_item=Ore Prefix: %s; Material: %s
 gregtech.command.util.hand.tool_stats=Tool Stats Class: %s
 gregtech.command.util.hand.meta_item=Meta Item Name: %s
 gregtech.command.util.hand.not_a_player=This command is only usable by a player.
+
+material.bedrockium=Bedrockium
+material.conductive_iron=Conductive Iron
+material.energetic_alloy=Energetic Alloy
+material.vibrant_alloy=Vibrant Alloy
+material.pulsating_iron=Pulsating Iron
+material.ardite=Ardite
+material.manyullyn=Manyullyn
+
+material.bedrockium=Bedrockium
+material.conductive_iron=Conductive Iron
+material.energetic_alloy=Energetic Alloy
+material.vibrant_alloy=Vibrant Alloy
+material.pulsating_iron=Pulsating Iron
+material.ardite=Ardite
+material.manyullyn=Manyullyn
+material.electrical_steel=Electrical Steel
+material.dark_steel=Dark Steel
+material.end_steel=End Steel
+material.lumium=Lumium
+material.signalum=Signalum
+material.enderium=Enderium
+material.awakened_draconium=Awakened Draconium
+material.draconium=Draconium
+material.refined_glowstone=Refined Glowstone
+material.refined_obsidian=Refined Obsidian
+material.osgloglas=Osgloglas
+material.trinium=Trinium
+material.meteoric_iron=Meteoric Iron
+material.meteoric_steel=Meteoric Steel
+material.cosmic_neutronium=Cosmic Neutronium
+material.infinity=Infinity
+material.infinity_catalyst=Infinity Catalyst
+material.quantium=Quantium
+material.black_plutonium=Black Plutonium
+material.sunnarium=Sunnarium
+
+
+
+
+

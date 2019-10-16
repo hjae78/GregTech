@@ -9,6 +9,7 @@ import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.type.DustMaterial;
+import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -93,6 +94,19 @@ public class MaterialMetaItem extends StandardMetaItem {
 
     @Override
     @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack)
+    {
+        if (stack.getMetadata() < metaItemOffset) {
+            Material material = Material.MATERIAL_REGISTRY.getObjectById(stack.getMetadata() % 1000);
+            if (material != null && material.hasFlag(IngotMaterial.MatFlags.GLINT)) {
+                return true;
+            }
+        }
+        return stack.isItemEnchanted();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public String getItemStackDisplayName(ItemStack itemStack) {
         if (itemStack.getItemDamage() < metaItemOffset) {
             Material material = Material.MATERIAL_REGISTRY.getObjectById(itemStack.getItemDamage() % 1000);
@@ -120,9 +134,12 @@ public class MaterialMetaItem extends StandardMetaItem {
         if (tab == GregTechAPI.TAB_GREGTECH_MATERIALS || tab == CreativeTabs.SEARCH) {
             for (short metadata : generatedItems) {
                 subItems.add(new ItemStack(this, 1, metadata));
+
             }
         }
     }
+
+
 
     @Override
     public void onUpdate(ItemStack itemStack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {

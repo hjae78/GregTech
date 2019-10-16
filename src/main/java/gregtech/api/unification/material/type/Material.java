@@ -130,6 +130,7 @@ public abstract class Material implements Comparable<Material> {
          */
         public static final long DECOMPOSITION_REQUIRES_HYDROGEN = createFlag(8);
 
+
         static {
             registerMaterialFlagsHolder(MatFlags.class, Material.class);
         }

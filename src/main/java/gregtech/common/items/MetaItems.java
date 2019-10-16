@@ -62,6 +62,36 @@ public final class MetaItems {
     public static MetaItem<?>.MetaValueItem SHAPE_MOLD_NAME;
     public static MetaItem<?>.MetaValueItem SHAPE_MOLD_GEAR_SMALL;
 
+    public static MetaItem<?>.MetaValueItem PLATE_ALUMINIUM_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_BEDROCKIUM_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_CHROME_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_TITANIUM_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_TUNGSTEN_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_TUNGSTENSTEEL_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_NAQUADRIA_IRON;
+    public static MetaItem<?>.MetaValueItem PLATE_NEUTRONIUM_IRON;
+
+    public static MetaItem<?>.MetaValueItem IRRADIANT_ALUMINIUM;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_BEDROCKIUM;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_CHROME;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_NAQUADRIA;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_NEUTRONIUM;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_TITANIUM;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_TUNGSTEN;
+    public static MetaItem<?>.MetaValueItem IRRADIANT_TUNGSTENSTEEL;
+
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_ALUMINIUM;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_BEDROCKIUM;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_CHROME;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_NAQUADRIA;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_NEUTRONIUM;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_TITANIUM;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_TUNGSTEN;
+    public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_TUNGSTENSTEEL;
+
+
+
+
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_PLATE;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_ROD;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_BOLT;

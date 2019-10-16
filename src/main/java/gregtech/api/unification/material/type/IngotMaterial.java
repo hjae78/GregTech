@@ -29,6 +29,8 @@ public class IngotMaterial extends SolidMaterial {
         public static final long GENERATE_SMALL_GEAR = createFlag(31);
         public static final long GENERATE_DENSE = createFlag(32);
         public static final long GENERATE_SPRING_SMALL = createFlag(33);
+        public static final long GLINT = createFlag(10738);
+
 
         /**
          * Add this to your Material if you want to have its Ore Calcite heated in a Blast Furnace for more output. Already listed are:

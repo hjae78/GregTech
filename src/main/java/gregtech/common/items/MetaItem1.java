@@ -287,6 +287,9 @@ public class MetaItem1 extends MaterialMetaItem {
         FLUID_CELL = addItem(762, "fluid_cell").addComponents(new FluidStats(1000, Integer.MIN_VALUE, Integer.MAX_VALUE, false));
         INTEGRATED_CIRCUIT = addItem(766, "circuit.integrated").addComponents(new IntCircuitBehaviour());
         FOAM_SPRAYER = addItem(746, "foam_sprayer").addComponents(new FoamSprayerBehavior());
+
+
+
     }
 
     public void registerRecipes() {

@@ -15,6 +15,7 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.util.AnnotatedMaterialHandlerLoader;
 import gregtech.api.util.GTLog;
+import gregtech.api.util.MTJsonGenerator;
 import gregtech.api.util.NBTUtil;
 import gregtech.api.worldgen.config.WorldGenRegistry;
 import gregtech.common.CommonProxy;
@@ -48,6 +49,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.io.IOException;
 
 @Mod(modid = GTValues.MODID,
     name = "GregTech Community Edition",
@@ -123,6 +126,7 @@ public class GregTechMod {
                 GTLog.logger.fatal("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             }
         }
+
 
         if (GTValues.isModLoaded(GTValues.MODID_FMP)) {
             GTLog.logger.info("ForgeMultiPart found. Legacy block conversion enabled.");
