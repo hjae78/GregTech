@@ -535,6 +535,8 @@ public class Materials {
     public static IngotMaterial Quantium = new IngotMaterial(524, "quantium", 0x00d10b, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
     public static IngotMaterial BlackPlutonium = new IngotMaterial(525, "black_plutonium", 0x323232, MaterialIconSet.SHINY, 2, of(), EXT2_METAL);
     public static IngotMaterial Sunnarium = new IngotMaterial(526, "sunnarium", 0xffff00, MaterialIconSet.SHINY, 2, of(), GENERATE_DENSE);
+    public static IngotMaterial Adamantium = new IngotMaterial(526, "adamantium", 0xfc3dff, MaterialIconSet.SHINY, 9, of(), EXT2_METAL);
+
 
 //    public static Materials Pentacadmiummagnesiumhexaoxid                                   = new Materials( 987, TextureSet.SET_SHINY          ,   1.0F,      0,  3, 1|2                ,  85, 85,  85,   0,   "Pentacadmiummagnesiumhexaoxid"                                 ,   "Superconductor Base MV"       ,     0,       0,     2500,  2500,  true,  false,  1,   1,   1, Dyes.dyeGray       , 1, Arrays.asList(new MaterialStack(Cadmium, 5), new MaterialStack(Magnesium, 1), new MaterialStack(Oxygen, 6)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 3)));
 //    public static Materials Titaniumonabariumdecacoppereikosaoxid                           = new Materials( 988, TextureSet.SET_METALLIC       ,   1.0F,      0,  3, 1|2                ,  51, 25,   0,   0,   "Titaniumonabariumdecacoppereikosaoxid"                         ,   "Superconductor Base HV"       ,     0,       0,     3300,  3300,  true,  false,  1,   1,   1, Dyes.dyeBrown      , 1, Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Barium, 9),  new MaterialStack(Copper, 10), new MaterialStack(Oxygen, 20)), Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 6)));

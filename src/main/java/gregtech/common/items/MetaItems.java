@@ -89,6 +89,16 @@ public final class MetaItems {
     public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_TUNGSTEN;
     public static MetaItem<?>.MetaValueItem PLATE_REINFORCED_TUNGSTENSTEEL;
 
+    public static MetaItem<?>.MetaValueItem ALLOY_ENRICHED_NAQUADRIA_NEUTRONIUM_SUNNARIUM;
+    public static MetaItem<?>.MetaValueItem ALLOY_ENRICHED_NAQUADRIA_SUNNARIUM;
+    public static MetaItem<?>.MetaValueItem ALLOY_ENRICHED_X_SUNNARIUM;
+
+    public static MetaItem<?>.MetaValueItem WAFER_PICO;
+    public static MetaItem<?>.MetaValueItem RAW_WAFER_PICO;
+
+
+
+
 
 
 

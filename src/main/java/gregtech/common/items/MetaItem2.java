@@ -190,6 +190,16 @@ public class MetaItem2 extends MaterialMetaItem {
         PLATE_REINFORCED_TITANIUM = addItem(531, "plate.reinforced.titanium");
         PLATE_REINFORCED_TUNGSTEN = addItem(532, "plate.reinforced.tungsten");
         PLATE_REINFORCED_TUNGSTENSTEEL = addItem(533, "plate.reinforced.tungstensteel");
+
+        ALLOY_ENRICHED_NAQUADRIA_NEUTRONIUM_SUNNARIUM = addItem(534, "alloy.naq.neu.sun");
+        ALLOY_ENRICHED_NAQUADRIA_SUNNARIUM = addItem(535, "alloy.naq.sun");
+        ALLOY_ENRICHED_X_SUNNARIUM = addItem(536, "alloy.x.sun");
+
+        WAFER_PICO = addItem(537, "wafer.pico");
+        RAW_WAFER_PICO = addItem(538, "wafer.pico.raw");
+
+
+
     }
 
     public void registerRecipes() {
