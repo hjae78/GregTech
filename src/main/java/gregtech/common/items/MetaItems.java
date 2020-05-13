@@ -378,6 +378,7 @@ public final class MetaItems {
 
     public static MetaItem<?>.MetaValueItem NANO_SABER;
     public static MetaItem<?>.MetaValueItem ENERGY_FIELD_PROJECTOR;
+    public static MetaItem<?>.MetaValueItem SCANNER;
 
     public static MetaItem<?>.MetaValueItem[] DYE_ONLY_ITEMS = new MetaItem.MetaValueItem[EnumDyeColor.values().length];
     public static MetaItem<?>.MetaValueItem[] SPRAY_CAN_DYES = new MetaItem.MetaValueItem[EnumDyeColor.values().length];
@@ -419,7 +420,6 @@ public final class MetaItems {
     public static ToolMetaItem<?>.MetaToolValueItem JACKHAMMER;
     public static ToolMetaItem<?>.MetaToolValueItem BUZZSAW;
     public static ToolMetaItem<?>.MetaToolValueItem SCREWDRIVER_LV;
-    public static ToolMetaItem<?>.MetaToolValueItem MAGNIFYING_GLASS;
 
     public static void init() {
         MetaItem1 first = new MetaItem1();

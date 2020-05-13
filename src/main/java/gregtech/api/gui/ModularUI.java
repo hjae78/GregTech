@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableList;
 import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.gui.widgets.*;
 import gregtech.api.gui.widgets.ProgressWidget.MoveType;
+import gregtech.api.util.Position;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -54,6 +55,8 @@ public final class ModularUI implements ISizeProvider {
     public void updateScreenSize(int screenWidth, int screenHeight) {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+        Position displayOffset = new Position(getGuiLeft(), getGuiTop());
+        guiWidgets.values().forEach(widget -> widget.setParentPosition(displayOffset));
     }
 
     public void initWidgets() {
@@ -81,7 +84,7 @@ public final class ModularUI implements ISizeProvider {
     }
 
     public static Builder extendedBuilder() {
-        return new Builder(GuiTextures.BACKGROUND_EXTENDED, 176, 216);
+        return new Builder(GuiTextures.BACKGROUND, 176, 216);
     }
 
     public static Builder builder(TextureArea background, int width, int height) {

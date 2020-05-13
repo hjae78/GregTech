@@ -17,7 +17,6 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.client.Minecraft;
-import net.minecraft.inventory.Slot;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.items.ItemStackHandler;
@@ -81,13 +80,13 @@ public class RecipeMapCategory implements IRecipeCategory<GTRecipeWrapper> {
                 if (slotWidget.getHandle().getItemHandler() == importItems) {
                     //this is input item stack slot widget, so add it to item group
                     itemStackGroup.init(slotWidget.getHandle().getSlotIndex(), true,
-                        slotWidget.getPosition().x - 1,
-                        slotWidget.getPosition().y - 1);
+                        slotWidget.getPosition().x,
+                        slotWidget.getPosition().y);
                 } else if (slotWidget.getHandle().getItemHandler() == exportItems) {
                     //this is output item stack slot widget, so add it to item group
                     itemStackGroup.init(importItems.getSlots() + slotWidget.getHandle().getSlotIndex(), false,
-                        slotWidget.getPosition().x - 1,
-                        slotWidget.getPosition().y - 1);
+                        slotWidget.getPosition().x,
+                        slotWidget.getPosition().y);
                 }
 
             } else if (uiWidget instanceof TankWidget) {
@@ -102,8 +101,8 @@ public class RecipeMapCategory implements IRecipeCategory<GTRecipeWrapper> {
                     fluidStackGroup.init(importIndex, true,
                         tankWidget.getPosition().x + tankWidget.fluidRenderOffset,
                         tankWidget.getPosition().y + tankWidget.fluidRenderOffset,
-                        tankWidget.getSize().width - tankWidget.fluidRenderOffset,
-                        tankWidget.getSize().height - tankWidget.fluidRenderOffset,
+                        tankWidget.getSize().width - (2 * tankWidget.fluidRenderOffset),
+                        tankWidget.getSize().height - (2 * tankWidget.fluidRenderOffset),
                         fluidAmount, false, null);
 
                 } else if (exportFluids.getFluidTanks().contains(tankWidget.fluidTank)) {
@@ -116,8 +115,8 @@ public class RecipeMapCategory implements IRecipeCategory<GTRecipeWrapper> {
                     fluidStackGroup.init(importFluids.getFluidTanks().size() + exportIndex, false,
                         tankWidget.getPosition().x + tankWidget.fluidRenderOffset,
                         tankWidget.getPosition().y + tankWidget.fluidRenderOffset,
-                        tankWidget.getSize().width - tankWidget.fluidRenderOffset,
-                        tankWidget.getSize().height - tankWidget.fluidRenderOffset,
+                        tankWidget.getSize().width - (2 * tankWidget.fluidRenderOffset),
+                        tankWidget.getSize().height - (2 * tankWidget.fluidRenderOffset),
                         fluidAmount, false, null);
 
                 }
@@ -133,17 +132,6 @@ public class RecipeMapCategory implements IRecipeCategory<GTRecipeWrapper> {
     public void drawExtras(Minecraft minecraft) {
         for (Widget widget : modularUI.guiWidgets.values()) {
             widget.drawInBackground(0, 0, new IRenderContext() {
-                @Override
-                public void drawSlotContents(Slot slot) {
-                }
-
-                @Override
-                public void renderSlotOverlay(Slot slot) {
-                }
-
-                @Override
-                public void setHoveredSlot(Slot hoveredSlot) {
-                }
             });
             widget.drawInForeground(0, 0);
         }

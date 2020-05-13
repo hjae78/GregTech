@@ -11,9 +11,7 @@ import gregtech.api.gui.widgets.tab.VerticalTabListRenderer;
 import gregtech.api.gui.widgets.tab.VerticalTabListRenderer.HorizontalLocation;
 import gregtech.api.gui.widgets.tab.VerticalTabListRenderer.VerticalStartCorner;
 import gregtech.api.util.Position;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.Tuple;
 
 import java.util.ArrayList;
@@ -49,7 +47,7 @@ public class TabGroup extends AbstractWidgetGroup {
     @Override
     public void drawInBackground(int mouseX, int mouseY, IRenderContext context) {
         super.drawInBackground(mouseX, mouseY, context);
-        this.tabListRenderer.renderTabs(tabInfos, sizes.getWidth(), sizes.getHeight(), selectedTabIndex);
+        this.tabListRenderer.renderTabs(getPosition(), tabInfos, sizes.getWidth(), sizes.getHeight(), selectedTabIndex);
     }
 
     @Override
@@ -72,20 +70,38 @@ public class TabGroup extends AbstractWidgetGroup {
             ITabInfo tabInfo = tabOnMouse.getFirst();
             int tabIndex = tabInfos.indexOf(tabInfo);
             if (selectedTabIndex != tabIndex) {
-                this.tabWidgets.get(selectedTabIndex).setVisible(false);
-                this.tabWidgets.get(tabIndex).setVisible(true);
-                this.selectedTabIndex = tabIndex;
-                Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                setSelectedTab(tabIndex);
+                playButtonClickSound();
+                writeClientAction(2, buf -> buf.writeVarInt(tabIndex));
                 return true;
             }
         }
         return false;
     }
 
+    private void setSelectedTab(int tabIndex) {
+        this.tabWidgets.get(selectedTabIndex).setVisible(false);
+        this.tabWidgets.get(tabIndex).setVisible(true);
+        this.selectedTabIndex = tabIndex;
+    }
+
+    @Override
+    public void handleClientAction(int id, PacketBuffer buffer) {
+        super.handleClientAction(id, buffer);
+        if (id == 2) {
+            int tabIndex = buffer.readVarInt();
+            if (selectedTabIndex != tabIndex) {
+                setSelectedTab(tabIndex);
+            }
+        }
+    }
+
     private Tuple<ITabInfo, int[]> getTabOnMouse(int mouseX, int mouseY) {
         for (int tabIndex = 0; tabIndex < tabInfos.size(); tabIndex++) {
             ITabInfo tabInfo = tabInfos.get(tabIndex);
             int[] tabSizes = tabListRenderer.getTabPos(tabIndex, sizes.getWidth(), sizes.getHeight());
+            tabSizes[0] += getPosition().x;
+            tabSizes[1] += getPosition().y;
             if (isMouseOverTab(mouseX, mouseY, tabSizes)) {
                 return new Tuple<>(tabInfo, tabSizes);
             }

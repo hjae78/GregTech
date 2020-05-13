@@ -1,9 +1,6 @@
 package gregtech.api.util;
 
 
-import codechicken.lib.vec.Rotation;
-import codechicken.lib.vec.Transformation;
-import codechicken.lib.vec.Vector3;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.google.common.collect.Lists;
@@ -60,23 +57,45 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.math.BigInteger;
 import java.util.List;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static gregtech.api.GTValues.V;
 
 public class GTUtility {
 
-    private static final Transformation REVERSE_HORIZONTAL_ROTATION = new codechicken.lib.vec.Rotation(Math.PI, new Vector3(0.0, 1.0, 0.0)).at(Vector3.center);
-    private static final Transformation REVERSE_VERTICAL_ROTATION = new Rotation(Math.PI, new Vector3(1.0, 0.0, 0.0)).at(Vector3.center);
+    public static Runnable combine(Runnable... runnables) {
+        return () -> {
+            for (Runnable runnable : runnables) {
+                if (runnable != null)
+                    runnable.run();
+            }
+        };
+    }
 
-    public static BigInteger LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
-    public static BigInteger LONG_MIN = BigInteger.valueOf(Long.MIN_VALUE);
+    public static Stream<Object> flatten(Object[] array) {
+        return Arrays.stream(array).flatMap(o -> o instanceof Object[] ? flatten((Object[]) o): Stream.of(o));
+    }
+
+    public static void copyInventoryItems(IItemHandler src, IItemHandlerModifiable dest) {
+        for (int i = 0; i < src.getSlots(); i++) {
+            ItemStack itemStack = src.getStackInSlot(i);
+            dest.setStackInSlot(i, itemStack.isEmpty() ? ItemStack.EMPTY : itemStack.copy());
+        }
+    }
+
+    public static <T> IntStream indices(T[] array) {
+        int[] indices = new int[array.length];
+        for (int i = 0; i < indices.length; i++)
+            indices[i] = i;
+        return Arrays.stream(indices);
+    }
 
     public static <T> String[] mapToString(T[] array, Function<T, String> mapper) {
         String[] result = new String[array.length];
@@ -131,10 +150,14 @@ public class GTUtility {
     //just because CCL uses a different color format
     //0xRRGGBBAA
     public static int convertRGBtoOpaqueRGBA_CL(int colorValue) {
+        return convertRGBtoRGBA_CL(colorValue, 255);
+    }
+
+    public static int convertRGBtoRGBA_CL(int colorValue, int opacity) {
         int r = (colorValue >> 16) & 0xFF;
         int g = (colorValue >> 8) & 0xFF;
         int b = (colorValue & 0xFF);
-        return (r & 0xFF) << 24 | (g & 0xFF) << 16 | (b & 0xFF) << 8 | (0xFF);
+        return (r & 0xFF) << 24 | (g & 0xFF) << 16 | (b & 0xFF) << 8 | (opacity & 0xFF);
     }
 
     //0xAARRGGBB
@@ -181,8 +204,12 @@ public class GTUtility {
     /**
      * Attempts to merge given ItemStack with ItemStacks in slot list supplied
      * If it's not possible to merge it fully, it will attempt to insert it into first empty slots
+     *
+     * @param itemStack item stack to merge. It WILL be modified.
+     * @param simulate if true, stack won't actually modify items in other slots
+     * @return if merging of at least one item succeed, false otherwise
      */
-    public static boolean mergeItemStack(ItemStack itemStack, List<Slot> slots) {
+    public static boolean mergeItemStack(ItemStack itemStack, List<Slot> slots, boolean simulate) {
         if (itemStack.isEmpty())
             return false; //if we are merging empty stack, return
 
@@ -201,7 +228,9 @@ public class GTUtility {
             if (amountToInsert == 0)
                 continue; //if we can't insert anything, continue
             //shrink our stack, grow slot's stack and mark slot as changed
-            stackInSlot.grow(amountToInsert);
+            if (!simulate) {
+                stackInSlot.grow(amountToInsert);
+            }
             itemStack.shrink(amountToInsert);
             slot.onSlotChanged();
             merged = true;
@@ -221,7 +250,9 @@ public class GTUtility {
                 continue; //if we can't insert anything, continue
             //split our stack and put result in slot
             ItemStack stackInSlot = itemStack.splitStack(amountToInsert);
-            slot.putStack(stackInSlot);
+            if (!simulate) {
+                slot.putStack(stackInSlot);
+            }
             merged = true;
             if (itemStack.isEmpty())
                 return true; //if we inserted all items, return
@@ -379,7 +410,7 @@ public class GTUtility {
                 return (byte) Math.max(0, tier - 1);
             }
         }
-        return tier;
+        return (byte) Math.min(V.length -1, tier);
     }
 
     public static BiomeDictionary.Type getBiomeTypeTagByName(String name) {
@@ -687,5 +718,13 @@ public class GTUtility {
             }
             return worldPower;
         }
+    }
+
+    public static Comparator<ItemStack> createItemStackComparator() {
+        return Comparator.<ItemStack, Integer>comparing(it -> Item.REGISTRY.getIDForObject(it.getItem()))
+            .thenComparing(ItemStack::getItemDamage)
+            .thenComparing(ItemStack::hasTagCompound)
+            .thenComparing(it -> -Objects.hashCode(it.getTagCompound()))
+            .thenComparing(ItemStack::getCount);
     }
 }

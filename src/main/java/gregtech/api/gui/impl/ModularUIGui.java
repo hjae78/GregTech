@@ -69,11 +69,12 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
         this.hoveredSlot = null;
         drawDefaultBackground();
 
-        drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
         GlStateManager.disableRescaleNormal();
         RenderHelper.disableStandardItemLighting();
         GlStateManager.disableLighting();
         GlStateManager.disableDepth();
+
+        drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
 
         RenderHelper.enableGUIStandardItemLighting();
         GlStateManager.pushMatrix();
@@ -91,13 +92,19 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
             }
             if (isPointInRegion(slot.xPos, slot.yPos, 16, 16, mouseX, mouseY) && slot.isEnabled()) {
                 renderSlotOverlay(slot);
-                this.hoveredSlot = slot;
+                setHoveredSlot(slot);
             }
         }
 
         RenderHelper.disableStandardItemLighting();
+        GlStateManager.popMatrix();
+
         drawGuiContainerForegroundLayer(mouseX, mouseY);
+
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(guiLeft, guiTop, 0.0F);
         RenderHelper.enableGUIStandardItemLighting();
+
         MinecraftForge.EVENT_BUS.post(new GuiContainerEvent.DrawForeground(this, mouseX, mouseY));
 
         GlStateManager.enableDepth();
@@ -111,12 +118,11 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
         renderHoveredToolTip(mouseX, mouseY);
     }
 
-    @Override
+
     public void setHoveredSlot(Slot hoveredSlot) {
         this.hoveredSlot = hoveredSlot;
     }
 
-    @Override
     public void drawSlotContents(Slot slot) {
         GlStateManager.enableDepth();
         RenderHelper.enableGUIStandardItemLighting();
@@ -128,7 +134,6 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
         GlStateManager.disableLighting();
     }
 
-    @Override
     public void renderSlotOverlay(Slot slot) {
         GlStateManager.disableDepth();
         int slotX = slot.xPos;
@@ -175,28 +180,25 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
     }
 
     @Override
-    //for foreground gl state is already translated
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         modularUI.guiWidgets.values().forEach(widget -> {
             GlStateManager.pushMatrix();
             GlStateManager.color(1.0f, 1.0f, 1.0f);
-            widget.drawInForeground(mouseX - guiLeft, mouseY - guiTop);
+            widget.drawInForeground(mouseX, mouseY);
             GlStateManager.popMatrix();
         });
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(guiLeft, guiTop, 0.0f);
-        modularUI.backgroundPath.draw(0, 0, xSize, ySize);
+        modularUI.backgroundPath.draw(guiLeft, guiTop, xSize, ySize);
         modularUI.guiWidgets.values().forEach(widget -> {
             GlStateManager.pushMatrix();
             GlStateManager.color(1.0f, 1.0f, 1.0f);
-            widget.drawInBackground(mouseX - guiLeft, mouseY - guiTop, this);
+            GlStateManager.enableBlend();
+            widget.drawInBackground(mouseX, mouseY, this);
             GlStateManager.popMatrix();
         });
-        GlStateManager.popMatrix();
     }
 
     @Override
@@ -206,7 +208,7 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
         if (wheelMovement != 0) {
             int mouseX = Mouse.getEventX() * this.width / this.mc.displayWidth;
             int mouseY = this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1;
-            mouseWheelMove(mouseX - guiLeft, mouseY - guiTop, wheelMovement);
+            mouseWheelMove(mouseX - guiLeft, mouseY, wheelMovement);
         }
     }
 
@@ -217,7 +219,7 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
 
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-        boolean result = modularUI.guiWidgets.values().stream().anyMatch(widget -> widget.mouseClicked(mouseX - guiLeft, mouseY - guiTop, mouseButton));
+        boolean result = modularUI.guiWidgets.values().stream().anyMatch(widget -> widget.mouseClicked(mouseX, mouseY, mouseButton));
         if (!result) {
             super.mouseClicked(mouseX, mouseY, mouseButton);
         }
@@ -226,7 +228,7 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
     @Override
     protected void mouseClickMove(int mouseX, int mouseY, int clickedMouseButton, long timeSinceLastClick) {
         boolean result = modularUI.guiWidgets.values().stream().anyMatch(widget ->
-            widget.mouseDragged(mouseX - guiLeft, mouseY - guiTop, clickedMouseButton, timeSinceLastClick));
+            widget.mouseDragged(mouseX, mouseY, clickedMouseButton, timeSinceLastClick));
         if (!result) {
             super.mouseClickMove(mouseX, mouseY, clickedMouseButton, timeSinceLastClick);
         }
@@ -234,7 +236,7 @@ public class ModularUIGui extends GuiContainer implements IRenderContext {
 
     @Override
     protected void mouseReleased(int mouseX, int mouseY, int state) {
-        boolean result = modularUI.guiWidgets.values().stream().anyMatch(widget -> widget.mouseReleased(mouseX - guiLeft, mouseY - guiTop, state));
+        boolean result = modularUI.guiWidgets.values().stream().anyMatch(widget -> widget.mouseReleased(mouseX, mouseY, state));
         if (!result) {
             super.mouseReleased(mouseX, mouseY, state);
         }

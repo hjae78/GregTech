@@ -12,6 +12,9 @@ public class ConfigHolder {
     @Config.Comment("Whether to increase number of rolls for dungeon chests. Increases dungeon loot drastically.")
     public static boolean increaseDungeonLoot = true;
 
+    @Config.Comment("Whether to hide facades of all blocks in JEI and creative search menu")
+    public static boolean hideFacadesInJEI = true;
+
     @Config.Comment("Specifies min amount of veins in section")
     public static int minVeinsInSection = 0;
 
@@ -22,6 +25,7 @@ public class ConfigHolder {
     public static boolean disableVanillaOres = false;
 
     @Config.Comment("Whether to disable rubber tree world generation. Default is false.")
+    @Config.RequiresMcRestart
     public static boolean disableRubberTreeGeneration = false;
 
     @Config.Comment("Whether machines should explode when overloaded with power. Default: true")

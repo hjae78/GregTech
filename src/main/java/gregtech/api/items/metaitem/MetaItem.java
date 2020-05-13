@@ -477,7 +477,7 @@ public abstract class MetaItem<T extends MetaItem<?>.MetaValueItem> extends Item
         if (stack.getItemDamage() >= metaItemOffset) {
             T item = getItem(stack);
             if (item == null) {
-                return "unnamed";
+                return "invalid item";
             }
             String unlocalizedName = String.format("metaitem.%s.name", item.unlocalizedName);
             if (item.getNameProvider() != null) {
@@ -487,8 +487,7 @@ public abstract class MetaItem<T extends MetaItem<?>.MetaValueItem> extends Item
                 .getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
             if (fluidHandlerItem != null) {
                 FluidStack fluidInside = fluidHandlerItem.drain(Integer.MAX_VALUE, false);
-                String name = fluidInside == null ? "metaitem.fluid_cell.empty" : fluidInside.getUnlocalizedName();
-                return I18n.format(unlocalizedName, I18n.format(name));
+                return I18n.format(unlocalizedName, fluidInside == null ? I18n.format("metaitem.fluid_cell.empty") : fluidInside.getLocalizedName());
             }
             return I18n.format(unlocalizedName);
         }

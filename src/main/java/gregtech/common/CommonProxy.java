@@ -22,9 +22,7 @@ import gregtech.loaders.OreDictionaryLoader;
 import gregtech.loaders.oreprocessing.DecompositionRecipeHandler;
 import gregtech.loaders.oreprocessing.RecipeHandlerList;
 import gregtech.loaders.oreprocessing.ToolRecipeHandler;
-import gregtech.loaders.recipe.CraftingRecipeLoader;
-import gregtech.loaders.recipe.MachineRecipeLoader;
-import gregtech.loaders.recipe.MetaTileEntityLoader;
+import gregtech.loaders.recipe.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
@@ -78,10 +76,10 @@ public class CommonProxy {
         registry.register(LEAVES);
         registry.register(SAPLING);
         registry.register(CRUSHER_BLADE);
+        registry.register(SURFACE_ROCK_NEW);
 
         COMPRESSED.values().stream().distinct().forEach(registry::register);
         SURFACE_ROCKS.values().stream().distinct().forEach(registry::register);
-        FLOODED_SURFACE_ROCKS.values().stream().distinct().forEach(registry::register);
         FRAMES.values().stream().distinct().forEach(registry::register);
         ORES.forEach(registry::register);
         FLUID_BLOCKS.forEach(registry::register);
@@ -174,6 +172,8 @@ public class CommonProxy {
         GTLog.logger.info("Running late material handlers...");
         OrePrefix.runMaterialHandlers();
         DecompositionRecipeHandler.runRecipeGeneration();
+        RecyclingRecipes.init();
+        WoodMachineRecipes.init();
     }
 
     @SubscribeEvent

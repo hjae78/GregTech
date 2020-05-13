@@ -189,37 +189,21 @@ metaitem.large_fluid_cell.steel.name=%s Steel Cell
 metaitem.large_fluid_cell.tungstensteel.name=%s Tungstensteel Cell
 
 metaitem.spray.can.dyes.white.name=Spray Can (White)
-metaitem.spray.can.dyes.white.tooltip=Can paint things in White
 metaitem.spray.can.dyes.orange.name=Spray Can (Orange)
-metaitem.spray.can.dyes.orange.tooltip=Can paint things in Orange
 metaitem.spray.can.dyes.magenta.name=Spray Can (Magenta)
-metaitem.spray.can.dyes.magenta.tooltip=Can paint things in Magenta
 metaitem.spray.can.dyes.light_blue.name=Spray Can (Light Blue)
-metaitem.spray.can.dyes.light_blue.tooltip=Can paint things in Light Blue
 metaitem.spray.can.dyes.yellow.name=Spray Can (Yellow)
-metaitem.spray.can.dyes.yellow.tooltip=Can paint things in Yellow
 metaitem.spray.can.dyes.lime.name=Spray Can (Lime)
-metaitem.spray.can.dyes.lime.tooltip=Can paint things in Lime
 metaitem.spray.can.dyes.pink.name=Spray Can (Pink)
-metaitem.spray.can.dyes.pink.tooltip=Can paint things in Pink
 metaitem.spray.can.dyes.gray.name=Spray Can (Gray)
-metaitem.spray.can.dyes.gray.tooltip=Can paint things in Gray
 metaitem.spray.can.dyes.silver.name=Spray Can (Light Gray)
-metaitem.spray.can.dyes.silver.tooltip=Can paint things in Light Gray
 metaitem.spray.can.dyes.cyan.name=Spray Can (Cyan)
-metaitem.spray.can.dyes.cyan.tooltip=Can paint things in Cyan
 metaitem.spray.can.dyes.purple.name=Spray Can (Purple)
-metaitem.spray.can.dyes.purple.tooltip=Can paint things in Purple
 metaitem.spray.can.dyes.blue.name=Spray Can (Blue)
-metaitem.spray.can.dyes.blue.tooltip=Can paint things in Blue
 metaitem.spray.can.dyes.brown.name=Spray Can (Brown)
-metaitem.spray.can.dyes.brown.tooltip=Can paint things in Brown
 metaitem.spray.can.dyes.green.name=Spray Can (Green)
-metaitem.spray.can.dyes.green.tooltip=Can paint things in Green
 metaitem.spray.can.dyes.red.name=Spray Can (Red)
-metaitem.spray.can.dyes.red.tooltip=Can paint things in Red
 metaitem.spray.can.dyes.black.name=Spray Can (Black)
-metaitem.spray.can.dyes.black.tooltip=Can paint things in Black
 
 metaitem.tool.matches.name=Match
 metaitem.tool.matchbox.name=Match Box
@@ -302,21 +286,21 @@ metaitem.electric.motor.zpm.name=Electric Motor (ZPM)
 metaitem.electric.motor.uv.name=Electric Motor (UV)
 
 metaitem.electric.pump.lv.name=Electric Pump (LV)
-metaitem.electric.pump.lv.tooltip=640 mb/sec (as Cover)
+metaitem.electric.pump.lv.tooltip=1280 mb/sec (as Cover)
 metaitem.electric.pump.mv.name=Electric Pump (MV)
-metaitem.electric.pump.mv.tooltip=2560 mb/sec (as Cover)
+metaitem.electric.pump.mv.tooltip=5120 mb/sec (as Cover)
 metaitem.electric.pump.hv.name=Electric Pump (HV)
-metaitem.electric.pump.hv.tooltip=10240 mb/sec (as Cover)
+metaitem.electric.pump.hv.tooltip=20,480 mb/sec (as Cover)
 metaitem.electric.pump.ev.name=Electric Pump (EV)
-metaitem.electric.pump.ev.tooltip=40,960 mb/sec (as Cover)
+metaitem.electric.pump.ev.tooltip=81,920 mb/sec (as Cover)
 metaitem.electric.pump.iv.name=Electric Pump (IV)
-metaitem.electric.pump.iv.tooltip=163,840 mb/sec (as Cover)
+metaitem.electric.pump.iv.tooltip=327,680 mb/sec (as Cover)
 metaitem.electric.pump.luv.name=Electric Pump (LuV)
-metaitem.electric.pump.luv.tooltip=655,360 mb/sec (as Cover)
+metaitem.electric.pump.luv.tooltip=1,310,720 mb/sec (as Cover)
 metaitem.electric.pump.zpm.name=Electric Pump (ZPM)
-metaitem.electric.pump.zpm.tooltip=655,360 mb/sec (as Cover)
+metaitem.electric.pump.zpm.tooltip=5,242,880 mb/sec (as Cover)
 metaitem.electric.pump.uv.name=Electric Pump (UV)
-metaitem.electric.pump.uv.tooltip=655,360 mb/sec (as Cover)
+metaitem.electric.pump.uv.tooltip=20,971,520 mb/sec (as Cover)
 
 metaitem.fluidregulator.lv.name=Fluid Regulator (LV)
 metaitem.fluidregulator.mv.name=Fluid Regulator (MV)
@@ -586,7 +570,7 @@ metaitem.dye.yellow.name=Yellow Dye
 metaitem.dye.lime.name=Lime Dye
 metaitem.dye.pink.name=Pink Dye
 metaitem.dye.gray.name=Gray Dye
-metaitem.dye.silver.name=Silver Dye
+metaitem.dye.silver.name=Light Gray Dye
 metaitem.dye.cyan.name=Cyan Dye
 metaitem.dye.purple.name=Purple Dye
 metaitem.dye.blue.name=Blue Dye
@@ -1406,6 +1390,7 @@ material.cocoa=Cocoa
 material.coffee=Coffee
 material.wheat=Wheat
 
+item.nether_quartz.oreNetherrack=Nether Quartz Ore
 item.gunpowder.dustTiny=Tiny Pile of Gunpowder
 item.gunpowder.dustSmall=Small Pile of Gunpowder
 item.paper.dustTiny=Tiny Pile of Chad
@@ -1627,8 +1612,6 @@ recipemap.gas_turbine.name=Gas Turbine
 recipemap.steam_turbine.name=Steam Turbine
 recipemap.semi_fluid_generator.name=Semi Fluid Fuels
 
-behavior.magnifying_glass.description=Use on surface rock to inspect it
-behavior.magnifying_glass.inspect=This rock contains %s
 behaviour.hoe=Can till dirt
 behaviour.soft_hammer=Use on machine to allow/disallow it to work
 behaviour.lighter.tooltip=Can light things on fire
@@ -1650,6 +1633,17 @@ tile.gt.leaves.rubber_wood.name=Rubber Tree Leaves
 tile.gt.sapling.rubber_wood.name=Rubber Tree Sapling
 
 tile.surface_rock.name=Surface Rock
+
+tile.surface_rock_new.name=Surface Rock
+gregtech.block.surface_rock.material=Rock Material: %s
+gregtech.block.surface_rock.underground_materials=Underground Materials: %s
+
+metaitem.scanner.name=Scanner
+metaitem.scanner.tooltip=Right click on surface rocks/nto discover underground materials
+behavior.scanner.analyzing=Analyzing...
+behavior.scanner.analyzing_failed=Analyzing failed!
+behavior.scanner.analyzing_complete=Analyzing complete!
+behavior.scanner.not_enough_energy=Analyzing failed: Not Enough Energy!
 
 tile.casing.ulv=ULV Machine Casing
 tile.casing.lv=LV Machine Casing
@@ -1749,6 +1743,11 @@ tile.multiblock_casing.assembler.name=Assembler Machine Casing
 tile.multiblock_casing.fusion.name=Fusion Machine Casing
 tile.multiblock_casing.fusion_mk2.name=Fusion Machine Casing MK II
 
+# Creative tabs
+itemGroup.gregtech.main=GregTech CE
+itemGroup.gregtech.materials=Materials (GTCE)
+itemGroup.gregtech.ores=Ores (GTCE)
+
 # Chests
 gregtech.machine.small_wooden_chest.name=Small Wooden Chest
 gregtech.machine.wooden_chest.name=Wooden Chest
@@ -1762,7 +1761,12 @@ gregtech.machine.locked_safe.name=Locked Safe
 gregtech.machine.locked_safe.malfunctioning=§cMalfunctioning!
 gregtech.machine.locked_safe.requirements=§7Replacements required:
 
-gregtech.machine.workbench.name=Advanced Crafting Station
+#Workbench
+gregtech.machine.workbench.name=Crafting Station
+gregtech.machine.workbench.tab.workbench=Crafting
+gregtech.machine.workbench.tab.item_list=Storage
+gregtech.item_list.items_stored=§7Stored: %d
+
 gregtech.machine.workbench.tab.crafting=Crafting
 gregtech.machine.workbench.tab.container=Container
 
@@ -2713,22 +2717,22 @@ behaviour.scoop=Catches Butterflies on Leftclick
 behaviour.softhammer=Activates and Deactivates Machines
 behaviour.wrench=Rotates Blocks on Rightclick
 behaviour.boor.by=by %s
-behaviour.paintspray.white.tooltip=Can paint things in white
-behaviour.paintspray.orange.tooltip=Can paint things in orange
-behaviour.paintspray.magenta.tooltip=Can paint things in magenta
-behaviour.paintspray.lightBlue.tooltip=Can paint things in light blue
-behaviour.paintspray.yellow.tooltip=Can paint things in yellow
-behaviour.paintspray.lime.tooltip=Can paint things in lime
-behaviour.paintspray.pink.tooltip=Can paint things in pink
-behaviour.paintspray.gray.tooltip=Can paint things in gray
-behaviour.paintspray.silver.tooltip=Can paint things in gray
-behaviour.paintspray.cyan.tooltip=Can paint things in cyan
-behaviour.paintspray.purple.tooltip=Can paint things in purple
-behaviour.paintspray.blue.tooltip=Can paint things in blue
-behaviour.paintspray.brown.tooltip=Can paint things in brown
-behaviour.paintspray.green.tooltip=Can paint things in green
-behaviour.paintspray.red.tooltip=Can paint things in red
-behaviour.paintspray.black.tooltip=Can paint things in black
+behaviour.paintspray.white.tooltip=Can paint things in White
+behaviour.paintspray.orange.tooltip=Can paint things in Orange
+behaviour.paintspray.magenta.tooltip=Can paint things in Magenta
+behaviour.paintspray.lightBlue.tooltip=Can paint things in Light Blue
+behaviour.paintspray.yellow.tooltip=Can paint things in Yellow
+behaviour.paintspray.lime.tooltip=Can paint things in Lime
+behaviour.paintspray.pink.tooltip=Can paint things in Pink
+behaviour.paintspray.gray.tooltip=Can paint things in Gray
+behaviour.paintspray.silver.tooltip=Can paint things in Light Gray
+behaviour.paintspray.cyan.tooltip=Can paint things in Cyan
+behaviour.paintspray.purple.tooltip=Can paint things in Purple
+behaviour.paintspray.blue.tooltip=Can paint things in Blue
+behaviour.paintspray.brown.tooltip=Can paint things in Brown
+behaviour.paintspray.green.tooltip=Can paint things in Green
+behaviour.paintspray.red.tooltip=Can paint things in Red
+behaviour.paintspray.black.tooltip=Can paint things in Black
 behaviour.paintspray.uses=Remaining Uses: %d
 behaviour.prospecting=Usable for Prospecting
 
@@ -2848,6 +2852,7 @@ gregtech.machine.rotor_holder.zpm.name=Rotor Holder (ZPM)
 gregtech.machine.rotor_holder.uv.name=Rotor Holder (UV)
 gregtech.machine.rotor_holder.max.name=Rotor Holder (MAX)
 
+gregtech.machine.fluid_tank.max_multiblock=Max Multiblock Size: %dx%dx%d
 gregtech.machine.fluid_tank.fluid=Contains %s mb of %s
 
 gregtech.machine.item_controller.tooltip.redstone=Requires Redstone Input To Work
@@ -2920,6 +2925,7 @@ gregtech.multiblock.idling=Idling.
 gregtech.multiblock.not_enough_energy=WARNING: Machine needs more energy.
 gregtech.multiblock.progress=Progress: %s%%
 gregtech.multiblock.invalid_structure=Invalid structure.
+gregtech.multiblock.invalid_structure.tooltip=This block is a controller of the multiblock structure. For building help, see structure template in JEI
 gregtech.multiblock.validation_failed=Invalid amount of inputs/outputs.
 gregtech.multiblock.max_energy_per_tick=Max EU/t: %s (%s)
 gregtech.multiblock.generation_eu=Outputting: %s EU/t
@@ -2944,6 +2950,13 @@ gregtech.multiblock.turbine.low_rotor_durability=WARNING: Rotor Durability below
 
 gregtech.multiblock.large_boiler.temperature=Temperature: %s / %s C
 gregtech.multiblock.large_boiler.steam_output=Steam Output: %s mb/t
+gregtech.multiblock.large_boiler.throttle=Throttle: %d %% (%d %% eff.)
+gregtech.multiblock.large_boiler.message_throttle_change=Throttle changed to: %d %%
+gregtech.multiblock.large_boiler.message_throttle_too_hot=Boiler is running too hot to throttle!
+gregtech.multiblock.large_boiler.heat_efficiency=Heat Efficiency: %d%%
+gregtech.multiblock.large_boiler.heat_efficiency.tooltip=The higher boiler temperature is, the higher it's fuel efficiency
+gregtech.multiblock.large_boiler.throttle.tooltip=Boiler can output less steam and consume less fuel, but it comes with price: the fuel efficiency is lower at higher throttle rates.
+gregtech.multiblock.large_boiler.throttle_modify=Modify Throttle:
 
 gregtech.command.usage=Usage: /gregtech <worldgen/util>
 gregtech.command.worldgen.usage=Usage: /gregtech worldgen <reload>

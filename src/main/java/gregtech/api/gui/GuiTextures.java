@@ -1,19 +1,24 @@
 package gregtech.api.gui;
 
+import gregtech.api.gui.resources.AdoptableTextureArea;
 import gregtech.api.gui.resources.SizedTextureArea;
 import gregtech.api.gui.resources.TextureArea;
 
 public class GuiTextures {
 
     //BASE TEXTURES
-    public static final TextureArea BACKGROUND = TextureArea.fullImage("textures/gui/base/background.png");
-    public static final TextureArea BACKGROUND_SMALL = TextureArea.fullImage("textures/gui/base/background_small.png");
-    public static final TextureArea BACKGROUND_EXTENDED = TextureArea.fullImage("textures/gui/base/background_extended.png");
-    public static final TextureArea BORDERED_BACKGROUND = TextureArea.fullImage("textures/gui/base/bordered_background.png");
-    public static final TextureArea BORDERED_BACKGROUND_EXTENDED = TextureArea.fullImage("textures/gui/base/bordered_background_extended.png");
-    public static final TextureArea SLOT = TextureArea.fullImage("textures/gui/base/slot.png");
-    public static final TextureArea SLOT_BIG = TextureArea.fullImage("textures/gui/base/slot_big.png");
-    public static final TextureArea FLUID_SLOT = TextureArea.fullImage("textures/gui/base/fluid_slot.png");
+    public static final TextureArea BACKGROUND = AdoptableTextureArea.fullImage("textures/gui/base/background.png", 176, 166, 3, 3);
+    public static final TextureArea BORDERED_BACKGROUND = AdoptableTextureArea.fullImage("textures/gui/base/bordered_background.png", 195, 136, 4, 4);
+    public static final TextureArea BOXED_BACKGROUND = AdoptableTextureArea.fullImage("textures/gui/base/boxed_background.png", 256, 174, 11, 11);
+
+    //deprecated texture areas retained for binary & source compatibility
+    @Deprecated public static final TextureArea BACKGROUND_SMALL = BACKGROUND; //replaced by normal background
+    @Deprecated public static final TextureArea BACKGROUND_EXTENDED = BACKGROUND; //replaced by normal background
+    @Deprecated public static final TextureArea BORDERED_BACKGROUND_EXTENDED = BORDERED_BACKGROUND; //replaced by normal background
+
+    public static final TextureArea SLOT = AdoptableTextureArea.fullImage("textures/gui/base/slot.png", 18, 18, 1, 1);
+    public static final TextureArea FLUID_SLOT = AdoptableTextureArea.fullImage("textures/gui/base/fluid_slot.png", 18, 18, 1, 1);
+    public static final TextureArea SLOT_DARKENED = TextureArea.fullImage("textures/gui/base/darkened_slot.png");
     public static final TextureArea DISPLAY = TextureArea.fullImage("textures/gui/base/display.png");
     public static final TextureArea FLUID_TANK_BACKGROUND = TextureArea.fullImage("textures/gui/base/fluid_tank_background.png");
     public static final TextureArea FLUID_TANK_OVERLAY = TextureArea.fullImage("textures/gui/base/fluid_tank_overlay.png");
@@ -31,7 +36,8 @@ public class GuiTextures {
     public static final TextureArea BUTTON_BLACKLIST = TextureArea.fullImage("textures/gui/widget/button_blacklist.png");
     public static final TextureArea BUTTON_SWITCH_VIEW = TextureArea.fullImage("textures/gui/widget/button_switch_view.png");
     public static final TextureArea BUTTON_ALLOW_IMPORT_EXPORT = TextureArea.fullImage("textures/gui/widget/button_allow_import_export.png");
-
+    public static final TextureArea BUTTON_CLEAR_GRID = TextureArea.fullImage("textures/gui/widget/button_clear_grid.png");
+    public static final TextureArea LOCK = TextureArea.fullImage("textures/gui/widget/lock.png");
     //INDICATORS & ICONS
     public static final TextureArea INDICATOR_NO_ENERGY = TextureArea.fullImage("textures/gui/base/indicator_no_energy.png");
     public static final TextureArea TANK_ICON = TextureArea.fullImage("textures/gui/base/tank_icon.png");
@@ -48,7 +54,12 @@ public class GuiTextures {
     public static final TextureArea BRONZE_INGOT_OVERLAY = TextureArea.fullImage("textures/gui/steam/bronze/overlay_bronze_ingot.png");
     public static final TextureArea BRONZE_DUST_OVERLAY = TextureArea.fullImage("textures/gui/steam/bronze/overlay_bronze_dust.png");
 
+    //ARMOR
+    public static final TextureArea CONNECTION_TYPE_POWER = TextureArea.fullImage("textures/gui/armor/connection/power.png");
+    public static final TextureArea COMPONENT_BATTERY = TextureArea.fullImage("textures/gui/armor/component/battery.png");
+
     //SLOT OVERLAYS
+    public static final TextureArea TOOL_SLOT_OVERLAY = TextureArea.fullImage("textures/gui/overlay/tool_slot_overlay.png");
     public static final TextureArea ARROW_INPUT_OVERLAY = TextureArea.fullImage("textures/gui/overlay/arrow_input_overlay.png");
     public static final TextureArea ARROW_OUTPUT_OVERLAY = TextureArea.fullImage("textures/gui/overlay/arrow_output_overlay.png");
     public static final TextureArea CHARGER_OVERLAY = TextureArea.fullImage("textures/gui/overlay/charger_slot_overlay.png");
